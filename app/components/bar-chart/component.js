@@ -9,25 +9,8 @@ import {
 
 export default Ember.Component.extend({
 
-  things_we_like: [{
-    name: 'Ice Crean',
-    count: 15
-  }, {
-    name: 'Bacon',
-    count: 42
-  }, {
-    name: 'Books',
-    count: 23
-  }, {
-    name: 'Running',
-    count: 27
-  }, {
-    name: 'Learning',
-    count: 43
-  }],
-
   didInsertElement () {
-    let dataArr = this.get('things_we_like')
+    let dataArr = this.get('data')
     let dataCounts = dataArr.map(thing => thing.count)
 
     let chartHeight = 150
