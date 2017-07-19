@@ -10,8 +10,10 @@ import {
 export default Ember.Component.extend({
 
   didInsertElement () {
+    let valueKey = this.get('valueKey')
+    let labelKey = this.get('labelKey')
     let dataArr = this.get('data')
-    let dataCounts = dataArr.map(thing => thing.count)
+    let dataCounts = dataArr.map(item => item[valueKey])
 
     let chartHeight = 150
     let chartWidth = 300
@@ -21,7 +23,7 @@ export default Ember.Component.extend({
       .range([0, chartHeight])
 
     let xScale = scaleBand()
-      .domain(dataArr.map(thing => thing.name))
+      .domain(dataArr.map(item => item[labelKey]))
       .range([0, chartWidth])
       .paddingInner(0.10)
 
@@ -32,9 +34,9 @@ export default Ember.Component.extend({
       .enter()
       .append('rect')
       .attr('width', xScale.bandwidth())
-      .attr('height', thing => yScale(thing.count))
-      .attr('x', thing => xScale(thing.name))
-      .attr('y', thing => chartHeight - yScale(thing.count))
+      .attr('height', item => yScale(item[valueKey]))
+      .attr('x', item => xScale(item[labelKey]))
+      .attr('y', item => chartHeight - yScale(item[valueKey]))
   }
 
 })

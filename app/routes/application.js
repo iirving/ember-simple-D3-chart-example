@@ -19,7 +19,7 @@ export default Ember.Route.extend({
       count: 43
     }, {
       name: 'Writing Code',
-      count: 33
+      count: 66
     }]
 
     return sample_data
