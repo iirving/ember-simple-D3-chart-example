@@ -44,7 +44,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = '/ember-simple-D3-chart-example.git/'
+    ENV.rootURL = '/ember-simple-D3-chart-example/'
     ENV.locationType = 'hash'
   }
 
